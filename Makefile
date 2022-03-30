@@ -1,13 +1,12 @@
-BINARY=engine
+BINARY=engine.exe
 test: 
 	go test -v -cover -covermode=atomic ./...
 
-engine:
-	go build -o ${BINARY} app/*.go
-
+build:
+	go build -o ${BINARY} app/main.go
 
 unittest:
 	go test -short  ./...
 
-clean:
-	if [ -f ${BINARY} ] ; then rm ${BINARY} ; fi
+run:
+	go run app/main.go
